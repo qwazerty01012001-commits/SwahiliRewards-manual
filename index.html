@@ -1,0 +1,1646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>SwahiliRewards — User Manual / Mwongozo wa Mtumiaji</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #0B1120;
+  --surface: #141F35;
+  --surface2: #1C2C4A;
+  --border: #1E3A5F;
+  --indigo: #4F46E5;
+  --indigo-light: #818CF8;
+  --emerald: #10B981;
+  --gold: #F59E0B;
+  --teal: #14B8A6;
+  --red: #F87171;
+  --text: #F0F4FF;
+  --text2: #94A3B8;
+  --text3: #64748B;
+  --radius: 16px;
+  --font: 'Inter', sans-serif;
+  --font-brand: 'Sora', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.65;
+  font-size: 15px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HEADER ── */
+.hero {
+  background: linear-gradient(160deg, #0B1120 0%, #0f1f40 50%, #0B1120 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 60px 24px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(79,70,229,.18) 0%, transparent 70%);
+  top: -150px; left: 50%; transform: translateX(-50%);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(16,185,129,.1) 0%, transparent 70%);
+  bottom: -80px; right: 5%;
+  pointer-events: none;
+}
+.logo-mark {
+  width: 72px; height: 72px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #4F46E5, #1E3A8A);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px;
+  box-shadow: 0 12px 40px rgba(79,70,229,.45);
+  font-size: 34px;
+  position: relative; z-index: 1;
+}
+.hero-title {
+  font-family: var(--font-brand);
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #fff 0%, rgba(165,180,252,.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative; z-index: 1;
+  margin-bottom: 10px;
+}
+.hero-sub {
+  font-size: 15px;
+  color: var(--text2);
+  margin-bottom: 6px;
+  position: relative; z-index: 1;
+}
+.hero-lang-badge {
+  display: inline-flex;
+  gap: 8px;
+  background: rgba(79,70,229,.15);
+  border: 1px solid rgba(79,70,229,.35);
+  border-radius: 99px;
+  padding: 6px 16px;
+  font-size: 12px;
+  color: var(--indigo-light);
+  font-weight: 600;
+  letter-spacing: .05em;
+  margin-top: 16px;
+  position: relative; z-index: 1;
+}
+.flag { font-size: 16px; }
+
+/* ── NAV TOC ── */
+.toc {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.toc::-webkit-scrollbar { display: none; }
+.toc-inner {
+  display: inline-flex;
+  gap: 4px;
+  padding: 10px 16px;
+  min-width: 100%;
+}
+.toc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 99px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text2);
+  cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font);
+  white-space: nowrap;
+  transition: all .2s;
+}
+.toc-link:hover {
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+  border-color: var(--border);
+}
+.toc-link.active {
+  color: var(--indigo-light);
+  background: rgba(79,70,229,.12);
+  border-color: rgba(79,70,229,.3);
+}
+
+/* ── LAYOUT ── */
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 48px 0 12px;
+}
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--indigo-light);
+  margin-bottom: 12px;
+}
+.section-eyebrow .dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--indigo-light);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--font-brand);
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 800;
+  letter-spacing: -.5px;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+.section-title span.sw {
+  display: block;
+  font-size: 0.65em;
+  color: var(--text2);
+  font-weight: 600;
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--border), transparent);
+  margin: 18px 0 24px;
+}
+
+/* ── CARDS ── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 12px;
+}
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.card-icon {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.card-icon.indigo { background: rgba(79,70,229,.15); }
+.card-icon.emerald { background: rgba(16,185,129,.15); }
+.card-icon.gold { background: rgba(245,158,11,.15); }
+.card-icon.teal { background: rgba(20,184,166,.15); }
+.card-icon.red { background: rgba(248,113,113,.15); }
+
+.card-title {
+  font-family: var(--font-brand);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.card-subtitle {
+  font-size: 12px;
+  color: var(--text2);
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* ── STEPS ── */
+.steps { display: flex; flex-direction: column; gap: 14px; }
+.step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--indigo), #1E3A8A);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  box-shadow: 0 4px 12px rgba(79,70,229,.35);
+}
+.step-body {}
+.step-title {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+.step-sw {
+  font-size: 12px;
+  color: var(--teal);
+  font-style: italic;
+  margin-bottom: 4px;
+}
+.step-desc { font-size: 13.5px; color: var(--text2); line-height: 1.6; }
+
+/* ── TWO-COL GRID ── */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+@media (max-width: 540px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* ── FEATURE BADGE ── */
+.feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(79,70,229,.12);
+  border: 1px solid rgba(79,70,229,.25);
+  border-radius: 99px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--indigo-light);
+  margin: 3px 3px 3px 0;
+}
+.feature-pill.gold {
+  background: rgba(245,158,11,.1);
+  border-color: rgba(245,158,11,.3);
+  color: #FCD34D;
+}
+.feature-pill.emerald {
+  background: rgba(16,185,129,.1);
+  border-color: rgba(16,185,129,.3);
+  color: #6EE7B7;
+}
+.feature-pill.red {
+  background: rgba(248,113,113,.1);
+  border-color: rgba(248,113,113,.3);
+  color: #FCA5A5;
+}
+
+/* ── REWARD BLOCK ── */
+.reward-row {
+  display: flex;
+  gap: 10px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.reward-chip {
+  flex: 1;
+  min-width: 100px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+}
+.reward-chip-val {
+  font-family: var(--font-brand);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--gold);
+}
+.reward-chip-label {
+  font-size: 11px;
+  color: var(--text3);
+  margin-top: 3px;
+}
+
+/* ── BILINGUAL CALLOUT ── */
+.bilingual {
+  background: linear-gradient(135deg, rgba(20,184,166,.08), rgba(79,70,229,.06));
+  border: 1px solid rgba(20,184,166,.2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: var(--teal);
+  line-height: 1.7;
+}
+.bilingual strong { color: #5EEAD4; }
+
+/* ── TIP BOX ── */
+.tip {
+  background: rgba(245,158,11,.08);
+  border-left: 3px solid var(--gold);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: #FCD34D;
+  line-height: 1.6;
+}
+.tip strong { color: var(--gold); display: block; margin-bottom: 4px; }
+.warn {
+  background: rgba(248,113,113,.08);
+  border-left: 3px solid var(--red);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: #FCA5A5;
+  line-height: 1.6;
+}
+.warn strong { color: var(--red); display: block; margin-bottom: 4px; }
+.success-box {
+  background: rgba(16,185,129,.08);
+  border-left: 3px solid var(--emerald);
+  border-radius: 0 10px 10px 0;
+  padding: 12px 16px;
+  margin: 12px 0;
+  font-size: 13px;
+  color: #6EE7B7;
+  line-height: 1.6;
+}
+.success-box strong { color: var(--emerald); display: block; margin-bottom: 4px; }
+
+/* ── CHECKLIST ── */
+.checklist { list-style: none; }
+.checklist li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 6px 0;
+  font-size: 14px;
+  color: var(--text2);
+  border-bottom: 1px solid rgba(255,255,255,.04);
+}
+.checklist li:last-child { border-bottom: none; }
+.checklist li::before {
+  content: '✓';
+  color: var(--emerald);
+  font-weight: 800;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.checklist .sw-item {
+  font-size: 11.5px;
+  color: var(--teal);
+  font-style: italic;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ── GAME CARDS ── */
+.game-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.game-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.game-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+}
+.game-card.spin::before { background: linear-gradient(90deg, #4F46E5, #818CF8); }
+.game-card.scratch::before { background: linear-gradient(90deg, #F59E0B, #D97706); }
+.game-card.lucky::before { background: linear-gradient(90deg, #10B981, #14B8A6); }
+
+.game-card-header {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 12px;
+}
+.game-emoji { font-size: 30px; }
+.game-name {
+  font-family: var(--font-brand);
+  font-size: 17px; font-weight: 800;
+}
+.game-name-sw {
+  font-size: 12px; color: var(--text2); margin-top: 2px;
+  font-style: italic;
+}
+.game-badge {
+  margin-left: auto;
+  padding: 4px 10px;
+  border-radius: 99px;
+  font-size: 11px; font-weight: 700;
+}
+.badge-indigo { background: rgba(79,70,229,.2); color: var(--indigo-light); }
+.badge-gold { background: rgba(245,158,11,.2); color: #FCD34D; }
+.badge-emerald { background: rgba(16,185,129,.2); color: #6EE7B7; }
+
+/* ── TASK TYPES ── */
+.task-type-row {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  padding: 12px;
+  background: var(--surface2);
+  border-radius: 10px;
+  margin-bottom: 8px;
+}
+.task-type-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+.task-type-name { font-weight: 700; font-size: 14px; }
+.task-type-sw { font-size: 12px; color: var(--teal); font-style: italic; }
+.task-type-desc { font-size: 13px; color: var(--text2); margin-top: 3px; }
+
+/* ── FAQ ── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+.faq-q {
+  background: var(--surface);
+  padding: 14px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  user-select: none;
+}
+.faq-q::after {
+  content: '›';
+  font-size: 20px;
+  color: var(--text3);
+  transition: transform .2s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.faq-item.open .faq-q::after { transform: rotate(90deg); }
+.faq-a {
+  display: none;
+  padding: 14px 18px;
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+  border-top: 1px solid var(--border);
+  background: rgba(0,0,0,.15);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-sw { color: var(--teal); font-style: italic; margin-top: 8px; font-size: 13px; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text3);
+}
+footer .contact { color: var(--indigo-light); font-weight: 600; }
+footer .offices { margin-top: 10px; line-height: 2; }
+
+/* ── NAV DOTS SIDEBAR (desktop) ── */
+@media (min-width: 900px) {
+  .container { padding: 0 48px 80px; }
+}
+
+/* ── TABLE ── */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 16px 0;
+}
+th {
+  background: var(--surface2);
+  color: var(--text2);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid var(--border);
+}
+td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,.02); }
+
+/* ── PROGRESS BAR ── */
+.mini-prog {
+  height: 6px;
+  background: var(--surface2);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.mini-prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--indigo), var(--indigo-light));
+  border-radius: 99px;
+}
+
+/* ── SCROLL INDICATOR ── */
+.scroll-hint {
+  text-align: center;
+  font-size: 12px;
+  color: var(--text3);
+  padding: 12px 0 4px;
+  letter-spacing: .05em;
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="logo-mark">💰</div>
+  <h1 class="hero-title">SwahiliRewards</h1>
+  <p class="hero-sub">Complete User Manual — How to Earn Real Money Every Day</p>
+  <p class="hero-sub" style="color:var(--teal)">Mwongozo Kamili wa Mtumiaji — Jinsi ya Kupata Pesa Halisi Kila Siku</p>
+  <div class="hero-lang-badge">
+    <span class="flag">🇬🇧</span> English &nbsp;·&nbsp; <span class="flag">🇹🇿</span> Kiswahili
+  </div>
+</header>
+
+<!-- TOC NAV -->
+<nav class="toc" id="toc">
+  <div class="toc-inner">
+    <a href="#getting-started" class="toc-link active">🚀 Getting Started</a>
+    <a href="#subscription" class="toc-link">⭐ Subscription</a>
+    <a href="#dashboard" class="toc-link">🏠 Dashboard</a>
+    <a href="#earn" class="toc-link">💰 Earn</a>
+    <a href="#tasks" class="toc-link">📋 Tasks</a>
+    <a href="#withdraw" class="toc-link">💸 Withdraw</a>
+    <a href="#referrals" class="toc-link">👥 Referrals</a>
+    <a href="#profile" class="toc-link">👤 Profile</a>
+    <a href="#support" class="toc-link">🎫 Support</a>
+    <a href="#faq" class="toc-link">❓ FAQ</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════
+     SECTION 1 — GETTING STARTED
+══════════════════════════════════════════ -->
+<section class="section" id="getting-started">
+  <div class="section-eyebrow"><span class="dot"></span>Section 1</div>
+  <h2 class="section-title">
+    Getting Started
+    <span class="sw">Jinsi ya Kuanza</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="bilingual">
+    <strong>Welcome to SwahiliRewards!</strong> This platform lets you earn real money every day through games, tasks, watching videos, and referring friends — available in Tanzania 🇹🇿, Kenya 🇰🇪, and Uganda 🇺🇬.<br/><br/>
+    <strong>Karibu SwahiliRewards!</strong> Jukwaa hili linakuruhusu kupata pesa halisi kila siku kupitia michezo, kazi, kutazama video, na kuwaalika marafiki.
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon indigo">📱</div>
+      <div>
+        <div class="card-title">Creating Your Account</div>
+        <div class="card-subtitle">Kufungua Akaunti Yako</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Open the app & tap "Create Free Account"</div>
+          <div class="step-sw">Fungua programu na bonyeza "Fungua Akaunti Bure"</div>
+          <div class="step-desc">You'll see the SwahiliRewards splash screen with the logo. Tap the green button to start registration.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Fill in your details</div>
+          <div class="step-sw">Jaza maelezo yako</div>
+          <div class="step-desc">Enter your <strong>Full Name</strong>, <strong>Phone Number</strong>, <strong>Email Address</strong>, and choose a strong <strong>Password</strong> (at least 6 characters). A password strength bar will show you how secure it is.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Enter a Referral Code (optional)</div>
+          <div class="step-sw">Weka Msimbo wa Rufaa (si lazima)</div>
+          <div class="step-desc">Tap <em>"+ Have a referral code?"</em> to enter a friend's referral code. If valid, you'll receive a <span class="feature-pill gold">+1,000 TZS Bonus</span> once your account is active.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Accept Terms & complete CAPTCHA</div>
+          <div class="step-sw">Kubali Masharti na kamilisha uthibitisho</div>
+          <div class="step-desc">Check the Terms & Privacy box and complete the human verification puzzle. Then tap <strong>Create Free Account</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">You're in! Welcome screen appears</div>
+          <div class="step-sw">Umefanikiwa! Skrini ya karibu inaonekana</div>
+          <div class="step-desc">A welcome pop-up shows your potential earnings: Spin wins, Scratch jackpot, and Lucky Draw rewards. Tap <strong>Let's Go</strong> to enter your dashboard.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon emerald">🔑</div>
+      <div>
+        <div class="card-title">Logging In</div>
+        <div class="card-subtitle">Kuingia kwenye Akaunti</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Tap "Login to Your Account"</div>
+          <div class="step-sw">Bonyeza "Ingia Akaunti Yako"</div>
+          <div class="step-desc">Enter your Email or Phone number and your password, then tap <strong>Login</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Forgot your password?</div>
+          <div class="step-sw">Umesahau nenosiri lako?</div>
+          <div class="step-desc">Tap <em>"Forgot password?"</em> on the login screen. Enter your email — you'll receive a reset link. Open the link in your browser to set a new password.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>💡 Pro Tip / Kidokezo</strong>
+    You can install SwahiliRewards as an app on your phone. When prompted with <em>"Install SwahiliRewards as an app"</em>, tap <strong>Install</strong> for faster access without opening a browser.<br/><br/>
+    Unaweza kusakinisha SwahiliRewards kama programu kwenye simu yako kwa kugonga "Install" unapoulizwa.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2 — SUBSCRIPTION
+══════════════════════════════════════════ -->
+<section class="section" id="subscription">
+  <div class="section-eyebrow"><span class="dot"></span>Section 2</div>
+  <h2 class="section-title">
+    Premium Subscription
+    <span class="sw">Usajili wa Premium</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="bilingual">
+    <strong>SwahiliRewards requires an active Premium subscription</strong> to unlock all earning features. Without it, the Earn and Withdraw tabs are locked. The subscription is <strong>TZS 9,500 per month</strong>.<br/><br/>
+    <strong>SwahiliRewards inahitaji usajili wa Premium</strong> ili kufungua vipengele vyote vya kupata pesa. Usajili ni <strong>TZS 9,500 kwa mwezi</strong>.
+  </div>
+
+  <div class="reward-row">
+    <div class="reward-chip">
+      <div class="reward-chip-val">3×</div>
+      <div class="reward-chip-label">Earning Rate</div>
+    </div>
+    <div class="reward-chip">
+      <div class="reward-chip-val" style="color:var(--emerald)">2,000</div>
+      <div class="reward-chip-label">TZS per Referral</div>
+    </div>
+    <div class="reward-chip">
+      <div class="reward-chip-val" style="color:var(--teal)">All</div>
+      <div class="reward-chip-label">Games & Tasks</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon gold">⭐</div>
+      <div>
+        <div class="card-title">How to Subscribe — Step by Step</div>
+        <div class="card-subtitle">Jinsi ya Kujiunga — Hatua kwa Hatua</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Tap "Subscribe Now" anywhere you see it</div>
+          <div class="step-sw">Bonyeza "Subscribe Now" popote unapoona</div>
+          <div class="step-desc">A subscription modal appears showing the <strong>TZS 9,500/month</strong> Premium plan and all its benefits.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Send TZS 9,500 to the payment number shown</div>
+          <div class="step-sw">Tuma TZS 9,500 kwenye nambari inayoonyeshwa</div>
+          <div class="step-desc">The app shows the payment method (e.g. M-Pesa, Airtel Money) and phone number. Send the money <strong>first</strong> before submitting.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Enter the phone number you paid from</div>
+          <div class="step-sw">Weka nambari ya simu uliyotumia kulipa</div>
+          <div class="step-desc">After sending the money, type the phone number you used to pay into the "Phone Used to Pay" field.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Check the confirmation box & submit</div>
+          <div class="step-sw">Tia alama ya uthibitisho na wasilisha</div>
+          <div class="step-desc">Check the box confirming you've already sent the money, then tap <strong>Submit for Verification</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Wait for admin to activate (a few hours)</div>
+          <div class="step-sw">Subiri msimamizi kuiwezesha (masaa machache)</div>
+          <div class="step-desc">You'll see a "Payment Submitted! ⏳" screen. The admin verifies your payment and activates your account within a few hours.</div>
+        </div>
+      </div>
+    </div>
+    <div class="warn" style="margin-top:14px">
+      <strong>⚠️ IMPORTANT / MUHIMU</strong>
+      Never submit the form before actually sending the money — your request will be rejected.<br/>
+      Usiwahi wasilisha fomu kabla ya kutuma pesa — ombi lako litakataliwa.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon indigo">✅</div>
+      <div>
+        <div class="card-title">What Premium Unlocks</div>
+        <div class="card-subtitle">Unavyopata na Premium</div>
+      </div>
+    </div>
+    <ul class="checklist">
+      <li>All 3 daily games — Spin, Scratch Card & Lucky Number Draw <span class="sw-item">Michezo yote 3 ya kila siku</span></li>
+      <li>Full access to Tasks, Videos, Ads, Quizzes & Surveys <span class="sw-item">Ufikiaji kamili wa Kazi, Video, Matangazo, Maswali & Dodoso</span></li>
+      <li>3× earning rate on every activity <span class="sw-item">Kiwango cha mapato cha mara 3 kwa kila shughuli</span></li>
+      <li>2,000 TZS per successful referral (vs 500 for free users) <span class="sw-item">TZS 2,000 kwa kila rufaa iliyofanikiwa</span></li>
+      <li>Ability to withdraw your earnings <span class="sw-item">Uwezo wa kutoa mapato yako</span></li>
+      <li>Priority withdrawals + Premium badge on your profile <span class="sw-item">Uwasilishaji wa kipaumbele + beji ya Premium</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3 — DASHBOARD
+══════════════════════════════════════════ -->
+<section class="section" id="dashboard">
+  <div class="section-eyebrow"><span class="dot"></span>Section 3</div>
+  <h2 class="section-title">
+    Dashboard — Your Home Screen
+    <span class="sw">Dashibodi — Skrini Yako ya Nyumbani</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <p style="color:var(--text2); margin-bottom:16px; font-size:14px;">The Dashboard is the first thing you see after logging in. It's your personal overview of everything happening on your account. <em style="color:var(--teal)">Dashibodi ni ya kwanza unayoona baada ya kuingia. Ni muhtasari wako wa kibinafsi.</em></p>
+
+  <div class="grid-2">
+    <div class="card" style="margin-bottom:0">
+      <div style="font-size:24px;margin-bottom:8px">💳</div>
+      <div class="card-title" style="font-size:15px">Balance Card</div>
+      <div class="card-subtitle">Kadi ya Salio</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:8px">Shows your current total balance in TZS (or KES/UGX if you changed the currency). Also displays today's earnings, referral count, daily streak 🔥, and your current rank.</p>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div style="font-size:24px;margin-bottom:8px">🔥</div>
+      <div class="card-title" style="font-size:15px">Daily Streak</div>
+      <div class="card-subtitle">Mfululizo wa Kila Siku</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:8px">Log in and check in every day to build your streak. A higher streak shows your dedication and may contribute to badge unlocks.</p>
+    </div>
+  </div>
+  <div class="grid-2" style="margin-top:12px">
+    <div class="card" style="margin-bottom:0">
+      <div style="font-size:24px;margin-bottom:8px">📅</div>
+      <div class="card-title" style="font-size:15px">Daily Check-In</div>
+      <div class="card-subtitle">Kujisajili Kila Siku</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:8px">Tap <strong>Check In (+150 TZS)</strong> once per day to earn a free bonus. This resets every 24 hours. Never skip it — it adds up fast!</p>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div style="font-size:24px;margin-bottom:8px">🏆</div>
+      <div class="card-title" style="font-size:15px">Leaderboard</div>
+      <div class="card-subtitle">Jedwali la Ubora</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:8px">See the top earners on the platform. Use this to measure your progress and compete with others in your region.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="card-header">
+      <div class="card-icon red">📡</div>
+      <div>
+        <div class="card-title">Live Withdrawal Feed</div>
+        <div class="card-subtitle">Mtiririko wa Uondoaji wa Moja kwa Moja</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2);">This scrolling feed shows real, recent withdrawals approved for other users. It proves that real people get paid — a sign that SwahiliRewards is legitimate.</p>
+    <div class="success-box" style="margin-top:10px">
+      <strong>✓ Trust Signal / Ishara ya Uaminifu</strong>
+      If you see a withdrawal appear in the live feed, it means the platform is active and paying. Watch it on your Dashboard any time.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon gold">🏅</div>
+      <div>
+        <div class="card-title">Badges</div>
+        <div class="card-subtitle">Beji</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2);">Earn special badges for milestones like your first check-in, first referral, reaching earnings targets, and more. Badges appear on your profile and Dashboard. Collect them all!</p>
+    <p style="font-size:13px;color:var(--teal);margin-top:6px;font-style:italic">Pata beji maalum kwa mafanikio kama kujisajili kwanza, rufaa ya kwanza, na kufikia malengo ya mapato.</p>
+  </div>
+
+  <div class="tip">
+    <strong>🎯 Daily Limit / Kikomo cha Kila Siku</strong>
+    Once you hit the daily earning limit, a yellow banner appears: "Daily earning limit reached — come back tomorrow!" This resets at midnight. Plan your tasks accordingly.<br/><br/>
+    Ukifikia kikomo cha mapato cha kila siku, ujumbe wa njano utaonekana. Inaweza kubadilishwa usiku wa manane.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4 — EARN / GAMES
+══════════════════════════════════════════ -->
+<section class="section" id="earn">
+  <div class="section-eyebrow"><span class="dot"></span>Section 4</div>
+  <h2 class="section-title">
+    Earn — Games
+    <span class="sw">Pata Pesa — Michezo</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="bilingual">
+    <strong>The Earn tab</strong> is where you play games to win TZS. Three premium games are available daily, each with its own rules, limits, and cooldown timers. You can only play one game at a time — finishing or closing one unlocks the others.<br/><br/>
+    <strong>Kichupo cha Mapato</strong> ndiko unakocheza michezo kupata TZS. Michezo mitatu ya premium inapatikana kila siku. Unaweza kucheza mchezo mmoja tu kwa wakati mmoja.
+  </div>
+
+  <div class="game-grid">
+    <!-- SPIN -->
+    <div class="game-card spin">
+      <div class="game-card-header">
+        <div class="game-emoji">🎡</div>
+        <div>
+          <div class="game-name">Spin the Wheel</div>
+          <div class="game-name-sw">Zungushia Gurudumu</div>
+        </div>
+        <div class="game-badge badge-indigo">Daily</div>
+      </div>
+      <p style="font-size:13.5px;color:var(--text2);margin-bottom:10px">A colourful prize wheel that awards a random TZS reward each spin. One spin is available per day. The wheel spins with an animation, and your reward pops up automatically.</p>
+      <p style="font-size:12.5px;color:var(--teal);font-style:italic">Gurudumu la zawadi linalotuza TZS nasibu kwa kila zungushio. Zungushio moja linapatikana kwa siku.</p>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <span class="feature-pill">🔁 Once per day</span>
+        <span class="feature-pill gold">Up to 250 TZS</span>
+      </div>
+      <div class="steps" style="margin-top:12px">
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">1</div>
+          <div class="step-body"><div class="step-desc">Go to <strong>Earn</strong> tab → tap <strong>Spin! 🎡</strong></div></div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">2</div>
+          <div class="step-body"><div class="step-desc">Watch the wheel spin and land on a prize segment</div></div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">3</div>
+          <div class="step-body"><div class="step-desc">Your TZS reward is credited to your balance instantly</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SCRATCH -->
+    <div class="game-card scratch">
+      <div class="game-card-header">
+        <div class="game-emoji">🎴</div>
+        <div>
+          <div class="game-name">Scratch Card</div>
+          <div class="game-name-sw">Kadi ya Kukuna</div>
+        </div>
+        <div class="game-badge badge-gold">♦ Jackpot</div>
+      </div>
+      <p style="font-size:13.5px;color:var(--text2);margin-bottom:10px">Drag your finger across the grey scratch surface to reveal a hidden prize. Standard prizes go up to 500 TZS, with a rare Jackpot of 600 TZS. Each new card is revealed when you tap <strong>New Card</strong>.</p>
+      <p style="font-size:12.5px;color:var(--teal);font-style:italic">Buruta kidole chako kwenye uso wa kukuna ili kufunua tuzo iliyofichwa. Tuzo za kawaida hadi TZS 500, na Jackpot adimu ya TZS 600.</p>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <span class="feature-pill gold">Jackpot: 600 TZS</span>
+        <span class="feature-pill">Instant Win</span>
+      </div>
+      <div class="steps" style="margin-top:12px">
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">1</div>
+          <div class="step-body"><div class="step-desc">Go to <strong>Earn</strong> → find <strong>Scratch Card</strong></div></div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">2</div>
+          <div class="step-body"><div class="step-desc">Use your finger/mouse to scratch the grey area</div></div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">3</div>
+          <div class="step-body"><div class="step-desc">Your prize appears — tap <strong>New Card</strong> for the next one</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LUCKY NUMBER -->
+    <div class="game-card lucky">
+      <div class="game-card-header">
+        <div class="game-emoji">🎲</div>
+        <div>
+          <div class="game-name">Lucky Number Draw</div>
+          <div class="game-name-sw">Kuchora Nambari ya Bahati</div>
+        </div>
+        <div class="game-badge badge-emerald">Win up to 1,500 TZS</div>
+      </div>
+      <p style="font-size:13.5px;color:var(--text2);margin-bottom:10px">Guess a number in the given range (e.g. 1–10). If your number matches the drawn number, you win a big TZS prize. Balls animate to reveal the draw result. The range and rewards are set by the admin.</p>
+      <p style="font-size:12.5px;color:var(--teal);font-style:italic">Nadhani nambari katika anuwai iliyotolewa. Ukifanana na nambari iliyochorwa, utashinda tuzo kubwa ya TZS.</p>
+      <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+        <span class="feature-pill emerald">Up to 1,500 TZS</span>
+        <span class="feature-pill">Guess & Win</span>
+      </div>
+      <div class="steps" style="margin-top:12px">
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">1</div>
+          <div class="step-body"><div class="step-desc">Go to <strong>Earn</strong> → find <strong>Lucky Number Draw</strong></div></div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">2</div>
+          <div class="step-body"><div class="step-desc">Type a number in the input field within the shown range</div></div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">3</div>
+          <div class="step-body"><div class="step-desc">Tap <strong>Draw!</strong> — animated balls reveal the winning number</div></div>
+        </div>
+        <div class="step">
+          <div class="step-num" style="width:22px;height:22px;font-size:11px">4</div>
+          <div class="step-body"><div class="step-desc">If you match, your TZS prize is added to your balance</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <strong>🔒 Game Locking / Kufunga Mchezo</strong>
+    Once you start one game, the other two lock until you finish or close it. This prevents confusion and ensures fair play. You'll see a lock icon on locked games.<br/><br/>
+    Ukianza mchezo mmoja, mingine miwili inafungwa hadi umalize au ufunge. Utaona ikoni ya kufunga kwenye michezo iliyofungwa.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5 — TASKS
+══════════════════════════════════════════ -->
+<section class="section" id="tasks">
+  <div class="section-eyebrow"><span class="dot"></span>Section 5</div>
+  <h2 class="section-title">
+    Tasks — Earn More TZS
+    <span class="sw">Kazi — Pata TZS Zaidi</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="bilingual">
+    Below the games section in the <strong>Earn</strong> tab, you'll find a list of <strong>Tasks</strong>. These are activities set by the admin that pay you TZS for completing them. New tasks are added regularly!<br/><br/>
+    Chini ya sehemu ya michezo katika kichupo cha <strong>Mapato</strong>, utapata orodha ya <strong>Kazi</strong>. Hizi ni shughuli zilizowekwa na msimamizi ambazo zinakupa TZS kwa kuzikamilisha.
+  </div>
+
+  <div class="task-type-row">
+    <div class="task-type-icon">📹</div>
+    <div>
+      <div class="task-type-name">Watch Video <span style="font-size:11px;color:var(--teal);font-style:italic">— Tazama Video</span></div>
+      <div class="task-type-desc">Watch a short video all the way through. A timer counts down while the video plays. Once it ends, your reward is credited automatically.</div>
+    </div>
+  </div>
+  <div class="task-type-row">
+    <div class="task-type-icon">📺</div>
+    <div>
+      <div class="task-type-name">Watch Ad <span style="font-size:11px;color:var(--teal);font-style:italic">— Tazama Tangazo</span></div>
+      <div class="task-type-desc">Watch a sponsor's advertisement video and earn TZS. Same as video tasks — just stay until the timer ends.</div>
+    </div>
+  </div>
+  <div class="task-type-row">
+    <div class="task-type-icon">📝</div>
+    <div>
+      <div class="task-type-name">Micro Task <span style="font-size:11px;color:var(--teal);font-style:italic">— Kazi Ndogo</span></div>
+      <div class="task-type-desc">Quick actions like visiting a website, following a social page, or completing a small form. A timer runs, and then you submit proof (screenshot) if required.</div>
+    </div>
+  </div>
+  <div class="task-type-row">
+    <div class="task-type-icon">📋</div>
+    <div>
+      <div class="task-type-name">Survey <span style="font-size:11px;color:var(--teal);font-style:italic">— Dodoso</span></div>
+      <div class="task-type-desc">Answer a series of questions (single choice, multiple choice, text answers, or rating scales). Complete all questions to receive your reward.</div>
+    </div>
+  </div>
+  <div class="task-type-row">
+    <div class="task-type-icon">🧠</div>
+    <div>
+      <div class="task-type-name">Quiz <span style="font-size:11px;color:var(--teal);font-style:italic">— Maswali ya Mtihani</span></div>
+      <div class="task-type-desc">Test your knowledge with quiz questions. Answer correctly to earn your TZS reward.</div>
+    </div>
+  </div>
+  <div class="task-type-row">
+    <div class="task-type-icon">📖</div>
+    <div>
+      <div class="task-type-name">Read Article <span style="font-size:11px;color:var(--teal);font-style:italic">— Soma Makala</span></div>
+      <div class="task-type-desc">Read a provided article or tip. Spend the required time on it, and your reading reward is credited.</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px">
+    <div class="card-header">
+      <div class="card-icon teal">⏱️</div>
+      <div>
+        <div class="card-title">Task Cooldowns</div>
+        <div class="card-subtitle">Muda wa Kupumzika kwa Kazi</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2)">Each task has a <strong>cooldown period</strong> (e.g., every 24 hours). Once you complete a task, a countdown timer shows when you can do it again. You can see the cooldown on each task card before starting.</p>
+    <p style="font-size:12.5px;color:var(--teal);font-style:italic;margin-top:6px">Kila kazi ina <strong>muda wa kupumzika</strong> (kwa mfano, kila masaa 24). Baada ya kukamilisha kazi, kipima wakati kinaonyesha wakati unaweza kuifanya tena.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon gold">📸</div>
+      <div>
+        <div class="card-title">Submitting Proof</div>
+        <div class="card-subtitle">Kuwasilisha Ushahidi</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2)">Some tasks (manual verification type) require you to upload a <strong>screenshot</strong> or photo as proof of completion. After the timer finishes, an upload button appears. Take a screenshot, upload it, and submit. The admin will review and approve your reward.</p>
+    <p style="font-size:12.5px;color:var(--teal);font-style:italic;margin-top:6px">Kazi fulani zinahitaji upakiaji wa <strong>picha ya skrini</strong> kama ushahidi wa kukamilika. Baada ya kipima wakati, kitufe cha kupakia kinaonekana. Piga picha ya skrini, ipakue, na uwasilishe.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 6 — WITHDRAW
+══════════════════════════════════════════ -->
+<section class="section" id="withdraw">
+  <div class="section-eyebrow"><span class="dot"></span>Section 6</div>
+  <h2 class="section-title">
+    Withdraw — Cash Out Your Earnings
+    <span class="sw">Toa Pesa — Ondoa Mapato Yako</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="bilingual">
+    Once you've earned enough TZS, you can <strong>request a withdrawal</strong> directly to your mobile money account (e.g. M-Pesa, Airtel Money). A valid Premium subscription is required to withdraw.<br/><br/>
+    Ukishapata TZS za kutosha, unaweza <strong>kuomba uondoaji</strong> moja kwa moja kwenye akaunti yako ya pesa ya simu. Usajili wa Premium unaohitajika.
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon emerald">💸</div>
+      <div>
+        <div class="card-title">How to Withdraw</div>
+        <div class="card-subtitle">Jinsi ya Kutoa Pesa</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Go to the Withdraw tab</div>
+          <div class="step-sw">Nenda kwenye kichupo cha Uondoaji</div>
+          <div class="step-desc">Tap <strong>Withdraw</strong> (💸) in the bottom navigation bar. Your available balance appears at the top.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Enter the amount</div>
+          <div class="step-sw">Weka kiasi</div>
+          <div class="step-desc">Type the amount you want to withdraw. The minimum is <span class="feature-pill">Min: 8,500 TZS</span> and the maximum per request is <span class="feature-pill red">Max: 49,999 TZS</span>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Select a payment method</div>
+          <div class="step-sw">Chagua njia ya malipo</div>
+          <div class="step-desc">Tap your preferred mobile money method (e.g. M-Pesa, Airtel Money, Halopesa, or bank transfer). The available methods are shown as cards.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Enter your receiving account / phone</div>
+          <div class="step-sw">Weka akaunti yako ya kupokea / simu</div>
+          <div class="step-desc">A field appears to enter the phone number or account where you want to receive the money.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <div class="step-title">Tap "Request Withdrawal"</div>
+          <div class="step-sw">Gonga "Omba Uondoaji"</div>
+          <div class="step-desc">Review the payment info shown at the bottom, then submit your request. The admin processes it and sends your money.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon indigo">📜</div>
+      <div>
+        <div class="card-title">Withdrawal History</div>
+        <div class="card-subtitle">Historia ya Uondoaji</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2)">Below the withdrawal form, you'll see <strong>My Withdrawal History</strong> — a list of all your past withdrawal requests with their status: Pending ⏳, Approved ✅, or Rejected ❌.</p>
+  </div>
+
+  <table>
+    <tr><th>Rule / Kanuni</th><th>Detail / Maelezo</th></tr>
+    <tr><td>Minimum withdrawal</td><td>TZS 8,500</td></tr>
+    <tr><td>Maximum per request</td><td>TZS 49,999</td></tr>
+    <tr><td>Premium required?</td><td>✅ Yes — active subscription needed</td></tr>
+    <tr><td>Processing time</td><td>Admin-verified, usually within 24 hours</td></tr>
+    <tr><td>Methods</td><td>M-Pesa, Airtel, Halopesa, Bank Transfer (as enabled)</td></tr>
+  </table>
+
+  <div class="warn">
+    <strong>⚠️ Important / Muhimu</strong>
+    Always double-check your receiving phone number before submitting. Withdrawals sent to wrong numbers cannot be reversed easily.<br/><br/>
+    Daima hakikisha nambari yako ya kupokea kabla ya kuwasilisha. Uondoaji uliomtumia nambari isiyo sahihi hauwezi kurudishwa kwa urahisi.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 7 — REFERRALS
+══════════════════════════════════════════ -->
+<section class="section" id="referrals">
+  <div class="section-eyebrow"><span class="dot"></span>Section 7</div>
+  <h2 class="section-title">
+    Refer & Earn
+    <span class="sw">Alika & Pata</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="reward-row">
+    <div class="reward-chip">
+      <div class="reward-chip-val">2,000</div>
+      <div class="reward-chip-label">TZS you earn per referral</div>
+    </div>
+    <div class="reward-chip">
+      <div class="reward-chip-val" style="color:var(--emerald)">1,000</div>
+      <div class="reward-chip-label">TZS your friend gets</div>
+    </div>
+  </div>
+
+  <div class="bilingual">
+    <strong>Referring friends is one of the fastest ways to earn big.</strong> Share your unique referral code or link. When your friend registers using your code and subscribes, you both get rewarded!<br/><br/>
+    <strong>Kuwaalika marafiki ni moja ya njia za haraka zaidi za kupata pesa nyingi.</strong> Shiriki msimbo wako wa rufaa. Rafiki yako ataposajili na kujiunga, nyote mnapata tuzo!
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon gold">✿</div>
+      <div>
+        <div class="card-title">How Referrals Work</div>
+        <div class="card-subtitle">Jinsi Rufaa Inavyofanya Kazi</div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Go to the Refer tab (👥)</div>
+          <div class="step-sw">Nenda kwenye kichupo cha Rufaa (👥)</div>
+          <div class="step-desc">Find your unique <strong>Referral Code</strong> (e.g. SR000000) and your shareable <strong>Referral Link</strong>.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Copy your code or link and share it</div>
+          <div class="step-sw">Nakili msimbo wako au kiungo na ukishiriki</div>
+          <div class="step-desc">Tap <strong>Copy</strong> next to your referral link. Share it via WhatsApp, SMS, Facebook, or any platform.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Your friend registers using your code</div>
+          <div class="step-sw">Rafiki yako anajisajili akitumia msimbo wako</div>
+          <div class="step-desc">During registration, they tap <em>"+ Have a referral code?"</em> and enter your code. They immediately receive <strong>1,000 TZS</strong> bonus when they become active.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">You receive your 2,000 TZS referral reward</div>
+          <div class="step-sw">Unapata tuzo yako ya TZS 2,000</div>
+          <div class="step-desc">Once your referred friend subscribes and is verified, <strong>2,000 TZS</strong> is credited to your balance. You'll see it in your Referral History below.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon indigo">📊</div>
+      <div>
+        <div class="card-title">Referral Progress & Leaderboard</div>
+        <div class="card-subtitle">Maendeleo ya Rufaa & Jedwali la Ubora</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2);margin-bottom:10px">A progress bar shows your referral count toward the next milestone (e.g., 0/6 active referrals). Below that, a <strong>Referral Leaderboard</strong> shows top referrers — compete to reach the top!</p>
+    <div style="background:var(--surface2);border-radius:10px;padding:12px">
+      <div style="font-size:12px;color:var(--text3);margin-bottom:6px">Example progress: 3 of 6 referrals</div>
+      <div class="mini-prog"><div class="mini-prog-fill" style="width:50%"></div></div>
+    </div>
+  </div>
+
+  <div class="success-box">
+    <strong>💡 Fast Track / Mkakati wa Haraka</strong>
+    Refer just 2 friends who subscribe and you've already earned back your monthly subscription cost (2 × 2,000 = 4,000 TZS vs. 9,500 subscription).<br/><br/>
+    Alika marafiki 2 tu wanaojiunga na tayari umepata zaidi ya gharama ya usajili wako wa mwezi.
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 8 — PROFILE & SETTINGS
+══════════════════════════════════════════ -->
+<section class="section" id="profile">
+  <div class="section-eyebrow"><span class="dot"></span>Section 8</div>
+  <h2 class="section-title">
+    Profile & Settings
+    <span class="sw">Wasifu na Mipangilio</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="bilingual">
+    The <strong>Profile tab</strong> (👤) is your personal settings hub. You can customize your experience, manage your account, and access all supporting features from here.<br/><br/>
+    Kichupo cha <strong>Wasifu</strong> (👤) ni kitovu chako cha mipangilio ya kibinafsi. Unaweza kubinafsisha uzoefu wako na kusimamia akaunti yako kutoka hapa.
+  </div>
+
+  <div class="grid-2">
+    <div class="card" style="margin-bottom:0">
+      <div style="font-size:22px;margin-bottom:8px">📸</div>
+      <div class="card-title" style="font-size:14px">Profile Photo</div>
+      <div class="card-subtitle">Picha ya Wasifu</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:8px">Tap your avatar circle at the top to upload a profile photo from your phone's gallery. It shows on your profile and leaderboard.</p>
+    </div>
+    <div class="card" style="margin-bottom:0">
+      <div style="font-size:22px;margin-bottom:8px">✏️</div>
+      <div class="card-title" style="font-size:14px">Edit Name</div>
+      <div class="card-subtitle">Badilisha Jina</div>
+      <p style="font-size:13px;color:var(--text2);margin-top:8px">Tap <strong>Edit Name</strong> in the menu to update your display name. It will appear across the app and leaderboard.</p>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:12px">
+    <div class="card-header">
+      <div class="card-icon teal">🌍</div>
+      <div>
+        <div class="card-title">Language, Currency & Theme</div>
+        <div class="card-subtitle">Lugha, Sarafu na Mandhari</div>
+      </div>
+    </div>
+    <ul class="checklist">
+      <li><strong>Language:</strong> Switch between <em>EN</em> (English) and <em>SW</em> (Swahili) — the entire app changes instantly <span class="sw-item">Lugha: Badilisha kati ya Kiingereza na Kiswahili</span></li>
+      <li><strong>Currency:</strong> Choose TZS (Tanzania), KES (Kenya), or UGX (Uganda) — balances display in your chosen currency <span class="sw-item">Sarafu: Chagua TZS, KES, au UGX</span></li>
+      <li><strong>Theme:</strong> 🌙 Dark mode (default) or ☀️ Light mode — your preference is saved automatically <span class="sw-item">Mandhari: Hali ya Giza au Hali ya Mwanga</span></li>
+      <li><strong>Notifications:</strong> Toggle "Digest" to receive one daily summary instead of individual alerts <span class="sw-item">Arifa: Badilisha "Digest" kwa muhtasari mmoja wa kila siku</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon indigo">📜</div>
+      <div>
+        <div class="card-title">Transaction History</div>
+        <div class="card-subtitle">Historia ya Miamala</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2)">Tap <strong>Transaction History</strong> to see every TZS credit and debit on your account. You can filter by type:</p>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:10px">
+      <span class="feature-pill">🎡 Spin</span>
+      <span class="feature-pill">🎴 Scratch</span>
+      <span class="feature-pill">🎲 Lucky Number</span>
+      <span class="feature-pill">📋 Tasks/Videos</span>
+      <span class="feature-pill">📅 Check-in</span>
+      <span class="feature-pill emerald">👥 Referral</span>
+      <span class="feature-pill red">💸 Withdrawals</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon gold">🎁</div>
+      <div>
+        <div class="card-title">Gift Cards</div>
+        <div class="card-subtitle">Kadi za Zawadi</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2)">Tap <strong>Gift Cards</strong> in the profile menu to view available gift card rewards. These are sent to you by the admin via your Notifications. Check your notifications for any gift card codes!</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon red">⚠️</div>
+      <div>
+        <div class="card-title">Account Danger Zone</div>
+        <div class="card-subtitle">Eneo Hatari la Akaunti</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2);margin-bottom:10px"><strong>Logout:</strong> Safely signs you out. Your data and balance remain safe. <em style="color:var(--teal)">Hutoa tena kwa usalama. Data na salio lako linabaki salama.</em></p>
+    <p style="font-size:13.5px;color:var(--text2)"><strong>Delete Account:</strong> Permanently removes your account and all data. This <span style="color:var(--red);font-weight:700">cannot be undone</span>. You will be asked to select a reason before confirming. <em style="color:var(--teal)">Inafuta akaunti yako na data yote kwa kudumu. Haiwezi kutenduliwa.</em></p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 9 — SUPPORT
+══════════════════════════════════════════ -->
+<section class="section" id="support">
+  <div class="section-eyebrow"><span class="dot"></span>Section 9</div>
+  <h2 class="section-title">
+    Notifications & Support
+    <span class="sw">Arifa na Msaada</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon indigo">🔔</div>
+      <div>
+        <div class="card-title">Notifications</div>
+        <div class="card-subtitle">Arifa</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2);margin-bottom:10px">Tap the bell icon 🔔 in the top bar to see all your notifications. This includes:</p>
+    <ul class="checklist">
+      <li>Withdrawal status updates (approved / rejected) <span class="sw-item">Hali ya uondoaji (imeidhinishwa / imekataliwa)</span></li>
+      <li>Admin announcements and messages <span class="sw-item">Matangazo ya msimamizi</span></li>
+      <li>Gift card awards <span class="sw-item">Tuzo za kadi za zawadi</span></li>
+      <li>Subscription status notifications <span class="sw-item">Arifa za hali ya usajili</span></li>
+    </ul>
+    <div class="tip" style="margin-top:10px">
+      <strong>📌 Badge Count</strong>
+      A red badge on the bell icon shows how many unread notifications you have. Tap it to clear them.
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon teal">🎫</div>
+      <div>
+        <div class="card-title">Support Tickets</div>
+        <div class="card-subtitle">Tiketi za Msaada</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2);margin-bottom:12px">If you have a problem, create a support ticket and the admin team will respond. Tap the ticket icon 🎫 in the top bar, or go to <strong>Profile → Support Tickets</strong>.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Tap ➕ New Ticket</div>
+          <div class="step-sw">Gonga ➕ Tiketi Mpya</div>
+          <div class="step-desc">A form opens. Enter a <strong>Subject</strong> (what your issue is about) and a detailed <strong>Message</strong> explaining the problem.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Submit & wait for a reply</div>
+          <div class="step-sw">Wasilisha na subiri jibu</div>
+          <div class="step-desc">Tap <strong>Submit Ticket</strong>. Your ticket appears in the list. The admin team will respond within your ticket thread.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Reply in the ticket thread</div>
+          <div class="step-sw">Jibu kwenye uzi wa tiketi</div>
+          <div class="step-desc">Tap a ticket to open it. Type your reply in the input field at the bottom. You can also attach a 📎 photo or PDF as evidence.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon gold">🐞</div>
+      <div>
+        <div class="card-title">Report a Problem</div>
+        <div class="card-subtitle">Ripoti Tatizo</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2)">Go to <strong>Profile → Report a Problem</strong> to submit a bug report. Choose a category (App Bug, Payment Issue, Account Issue, Game/Task Issue, or Other) and describe what happened. This helps improve the app.</p>
+  </div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="card-icon emerald">✉️</div>
+      <div>
+        <div class="card-title">Contact Support Directly</div>
+        <div class="card-subtitle">Wasiliana na Msaada Moja kwa Moja</div>
+      </div>
+    </div>
+    <p style="font-size:13.5px;color:var(--text2)">Go to <strong>Profile → Contact Support</strong> to find:</p>
+    <ul class="checklist" style="margin-top:8px">
+      <li>📧 <strong>Email:</strong> support@swahilirewards.com</li>
+      <li>📍 <strong>Nairobi, Kenya</strong></li>
+      <li>📍 <strong>Kampala, Uganda</strong></li>
+      <li>📍 <strong>Dar es Salaam, Tanzania</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SECTION 10 — FAQ
+══════════════════════════════════════════ -->
+<section class="section" id="faq">
+  <div class="section-eyebrow"><span class="dot"></span>Section 10</div>
+  <h2 class="section-title">
+    Frequently Asked Questions
+    <span class="sw">Maswali Yanayoulizwa Mara Kwa Mara</span>
+  </h2>
+  <div class="section-divider"></div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Is SwahiliRewards free to join? / Je, SwahiliRewards ni bure kujiunga?
+    </div>
+    <div class="faq-a">
+      <strong>Yes!</strong> Creating an account is completely free. However, to access all earning features (games, tasks, withdrawals), you need an active Premium subscription at <strong>TZS 9,500/month</strong>.<br/>
+      <div class="faq-sw">Ndiyo! Kufungua akaunti ni bure kabisa. Hata hivyo, ili kufikia vipengele vyote vya kupata pesa, unahitaji usajili wa Premium kwa TZS 9,500/mwezi.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How long does subscription verification take? / Uthibitisho wa usajili unachukua muda gani?
+    </div>
+    <div class="faq-a">
+      Subscription payments are manually verified by the admin team. This typically takes <strong>a few hours</strong>, though it may occasionally take up to 24 hours during busy periods. You'll receive a notification once activated.<br/>
+      <div class="faq-sw">Malipo ya usajili yanathiriwa kwa mkono na timu ya msimamizi. Hii kawaida huchukua <strong>masaa machache</strong>. Utapokea arifa ukiwa umewezeshwa.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Why is the Earn tab locked? / Kwa nini kichupo cha Mapato kimefungwa?
+    </div>
+    <div class="faq-a">
+      The Earn tab requires an active Premium subscription. If your subscription has expired or hasn't been verified yet, you'll see the lock screen. Tap "Subscribe Now" to activate or renew.<br/>
+      <div class="faq-sw">Kichupo cha Mapato kinahitaji usajili wa Premium unaofanya kazi. Ikiwa usajili wako umekwisha au haujathibitishwa bado, utaona skrini ya kufunga.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      When do I receive my withdrawal? / Nitapokea uondoaji wangu lini?
+    </div>
+    <div class="faq-a">
+      Withdrawal requests are processed manually by the admin. Most are approved within <strong>24 hours</strong>. You can track the status (Pending / Approved / Rejected) in your Withdrawal History on the Withdraw tab.<br/>
+      <div class="faq-sw">Maombi ya uondoaji yanashughulikiwa kwa mkono na msimamizi. Mengi yanaidhinishwa ndani ya masaa 24. Unaweza kufuatilia hali katika Historia ya Uondoaji.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Can I play all three games on the same day? / Ninaweza kucheza michezo yote mitatu siku moja?
+    </div>
+    <div class="faq-a">
+      <strong>Yes!</strong> All three games (Spin, Scratch Card, Lucky Number Draw) can be played daily. However, you can only play one at a time — the others lock while one is active. Complete or close one to unlock the next.<br/>
+      <div class="faq-sw">Ndiyo! Michezo yote mitatu inaweza kuchezwa kila siku. Hata hivyo, unaweza kucheza mmoja tu kwa wakati mmoja — wengine wanafungwa wakati mmoja ukifanya kazi.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      How do I cancel my subscription? / Ninawezaje kufuta usajili wangu?
+    </div>
+    <div class="faq-a">
+      SwahiliRewards uses a manual payment model. There is no auto-renewal. To cancel, simply <strong>don't pay</strong> for the next month. Your subscription will expire on its end date, and access will be removed automatically.<br/>
+      <div class="faq-sw">SwahiliRewards inatumia mfumo wa malipo ya mkono. Hakuna kuhuisha moja kwa moja. Kutofuta, tu <strong>usilipe</strong> mwezi ujao. Usajili wako utaisha na ufikiaji utaondolewa.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      What is the daily earning limit? / Kikomo cha mapato cha kila siku ni nini?
+    </div>
+    <div class="faq-a">
+      The platform has a daily earning cap to maintain sustainability. Once you hit it, a banner appears saying "Daily earning limit reached — come back tomorrow!" The limit resets at midnight. Check the Earn tab to see your remaining capacity.<br/>
+      <div class="faq-sw">Jukwaa lina ukomo wa mapato wa kila siku ili kudumisha uendelevu. Ukifika, ujumbe unaonekana. Kikomo kinawaka upya usiku wa manane.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      My referral friend signed up — where is my reward? / Rafiki wangu wa rufaa alisajili — tuzo yangu iko wapi?
+    </div>
+    <div class="faq-a">
+      Your 2,000 TZS referral reward is credited once your referred friend <strong>subscribes and is verified</strong> as Premium. If they only registered but haven't subscribed yet, the reward hasn't been triggered. You can track it in the Referral History section.<br/>
+      <div class="faq-sw">Tuzo yako ya TZS 2,000 inaongezwa mara tu rafiki wako aliyeorodheshwa <strong>akijiunga na kuthibitishwa</strong> kama Premium. Unaweza kuifuatilia katika sehemu ya Historia ya Rufaa.</div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      Is SwahiliRewards available outside East Africa? / Je, SwahiliRewards inapatikana nje ya Afrika Mashariki?
+    </div>
+    <div class="faq-a">
+      SwahiliRewards is designed primarily for users in <strong>Tanzania 🇹🇿</strong>, <strong>Kenya 🇰🇪</strong>, and <strong>Uganda 🇺🇬</strong>. Payment methods and currency options reflect these regions. If you are outside these countries, some features (especially withdrawals) may not work optimally.<br/>
+      <div class="faq-sw">SwahiliRewards imeundwa hasa kwa watumiaji wa Tanzania, Kenya, na Uganda. Njia za malipo na chaguzi za sarafu zinaonyesha maeneo haya.</div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<!-- FOOTER -->
+<footer>
+  <div style="font-size:24px;margin-bottom:10px">💰</div>
+  <div style="font-family:'Sora',sans-serif;font-size:16px;font-weight:700;color:var(--text);margin-bottom:6px">SwahiliRewards</div>
+  <div>Earn rewards, build connections, unlock opportunities.</div>
+  <div style="color:var(--teal);margin-top:4px;font-style:italic">Pata zawadi, jenga uhusiano, fungua fursa.</div>
+  <div class="offices">
+    📧 <span class="contact">support@swahilirewards.com</span><br/>
+    📍 Dar es Salaam, Tanzania &nbsp;·&nbsp; 📍 Nairobi, Kenya &nbsp;·&nbsp; 📍 Kampala, Uganda
+  </div>
+  <div style="margin-top:20px;font-size:11px;color:var(--text3)">This manual covers all user-facing features of the SwahiliRewards platform.</div>
+  <div style="font-size:11px;color:var(--text3)">Mwongozo huu unashughulikia vipengele vyote vinavyoonekana na mtumiaji vya jukwaa la SwahiliRewards.</div>
+</footer>
+
+<script>
+// ── TOC ACTIVE STATE ON SCROLL ──
+const sections = document.querySelectorAll('section[id]');
+const tocLinks = document.querySelectorAll('.toc-link');
+
+function onScroll() {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.getBoundingClientRect().top;
+    if (top <= 120) current = s.id;
+  });
+  tocLinks.forEach(link => {
+    link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+
+// Smooth scroll with offset
+tocLinks.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const offset = 70;
+      const top = target.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>
