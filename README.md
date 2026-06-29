@@ -1,0 +1,2 @@
+# SwahiliRewards-manual
+Manual
